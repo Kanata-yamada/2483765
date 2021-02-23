@@ -1,0 +1,13 @@
+<body onKeyDown="{
+let myArrowKey = event.keyCode
+let myAlphaKey = event.key
+
+if (myArrowKey == 37) {
+document.getElementById('mySpan01').innerHTML = 'Hi from onKeyDown d key pressed'}}">
+<h1 align=center>T3A09-events-kanata</h1>
+output span: <span id="mySpan01">...</span><br><br>
+\Traditional onclick evet: <input tyape=button value="onclick event" onklic="{document.getElementByID('mySpan01').innerHTML = 'Hi from onclick'
+}"> bolde and onMouseOver </b> this isn't</br>
+</body>
+
+//let myLowKey = String.toLowerCase(event.key)// who can fix this
