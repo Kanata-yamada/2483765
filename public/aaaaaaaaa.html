@@ -1,4 +1,45 @@
 var 0.0.l
 <html>
-  
+  <!DOCTYPE html>
+<meta charset="utf-8">
+<title>Movement Example</title>
+<h1>Movement Example</h1>
+<p>Use WASD keys to move. View source to see how it works.</p>
+<div style="position: relative">
+  <img src="http://labs.toolness.com/temp/shake-01.gif"
+       id="player"
+       style="position: absolute;">
+</div>
+<script>
+var MOVE_AMOUNT = 10;
+
+var player = {
+  x: 0,
+  y: 0,
+  image: document.getElementById("player")
+};
+
+var keyHandlers = {
+  W: function moveUp() { player.y -= MOVE_AMOUNT; },
+  A: function moveLeft() { player.x -= MOVE_AMOUNT; },
+  S: function moveDown() { player.y += MOVE_AMOUNT; },
+  D: function moveRight() { player.x += MOVE_AMOUNT; }
+};
+
+window.onkeydown = function(event) {
+  var keyPressed = String.fromCharCode(event.keyCode);
+
+  if (keyPressed in keyHandlers) {
+    keyHandlers[keyPressed]();
+    positionPlayer();
+  }
+};
+
+function positionPlayer() {
+  player.image.style.left = player.x + "px";
+  player.image.style.top = player.y + "px";
+}
+
+positionPlayer();
+</script>
 </html>
