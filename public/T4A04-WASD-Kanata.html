@@ -54,10 +54,26 @@ function myCheckAll(){
          document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
          myCheckAll()
       }
+                  
+      if (myAlphaKey.toLowerCase() == 'a') {   // go left
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+      }
+                  
+      if (myAlphaKey.toLowerCase() == 'w') {   // go up
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+      }
+                 
+      if (myAlphaKey.toLowerCase() == 's') {   // go down
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+      }
 }">
 
 
 <h1 align=center>T4A04-WASD-Kanata.html</h1>
+   <br>var0.1.1
 
 
 <input type=button value="Move 10 pixels right" onClick="{
