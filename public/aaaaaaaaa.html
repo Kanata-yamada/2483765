@@ -1,49 +1,73 @@
 var 0.5.5
 <html>
   <!DOCTYPE html>
-<meta charset="utf-8">
-
-<div style="position: relative">
-  <img src="https://thumbnail.imgbin.com/9/3/13/imgbin-cat-kitten-pixel-art-cat-0cX5J9K16uHmvYEcL8GwYTqww_t.jpg" width="50" height="50"
-       id="player"
-       style="position: absolute;">
-</div>
-<script>
-var MOVE_AMOUNT = 10;
-
-var player = {
-  x: 0,
-  y: 0,
-  image: document.getElementById("player")
-};
-
-var keyHandlers = {
-  W: function moveUp() { player.y -= MOVE_AMOUNT; },
-  A: function moveLeft() { player.x -= MOVE_AMOUNT; },
-  S: function moveDown() { player.y += MOVE_AMOUNT; },
-  D: function moveRight() { player.x += MOVE_AMOUNT; }
-};
-
-window.onkeydown = function(event) {
-  var keyPressed = String.fromCharCode(event.keyCode);
-
-  if (keyPressed in keyHandlers) {
-    keyHandlers[keyPressed]();
-    positionPlayer();
-  }
-};
-
-function positionPlayer() {
-  player.image.style.left = player.x + "px";
-  player.image.style.top = player.y + "px";
+  
+  <script>
+function myHitOther(my1,my2){
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
 }
 
-positionPlayer();
+
+function myCheckAll(){
+  if(myHitOther('mySpan01', 'mySpan02')){
+    document.getElementById('mySpan02').style.left = '-400px'
+    alert('You Win!')
+    location = 'https://google.ca'
+  }
+
+  if(myHitOther('mySpan01', 'mySpan03')){
+    document.getElementById('mySpan03').style.left = '-400px'
+  }
+
+  // your other checks go here
+
+}
+
+
 </script>
-  
-{<span id="mySpan02" style="position:absolute; left:400; top:150; width:45; height:30">
-<scr="https://i.redd.it/tyun670p1cj51.png" width="50" height="50"></span>}
-  <br>
 
 
-</html>
+
+
+
+<h1 align=center>T4A03-win-and-checkAll-Kanata.html</h1>
+
+
+<input type=button value="Move 10 pixels right" onClick="{
+                        
+  document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+  myCheckAll()
+                        
+}">
+
+
+<input type=button value="Move 10 pixels Diagonal" onClick="{
+                        
+  document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+  document.getElementById('mySpan01').style.top  = parseInt(document.getElementById('mySpan01').style.top)  - 10
+  myCheckAll()
+                        
+}">
+
+
+
+<span id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30">
+   Span 1 </span><br>
+<span id="mySpan02" style="position:absolute; left:400; top:150; width:45; height:30"> 
+   Span 2 </span><br>
+<span id="mySpan03" style="position:absolute; left:200; top:150; width:45; height:30"> 
+   Span 3 </span><br>
+ 
