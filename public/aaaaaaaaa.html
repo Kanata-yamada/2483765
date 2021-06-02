@@ -43,10 +43,10 @@ function myCheckAll(){
 
 
 
-<h1 align=center>T4A03-win-and-checkAll-Kanata.html</h1>
+<h1 align=center>Kanata.html</h1>
 
 
-<input type=button value="Move 10 pixels right" onClick="{
+<input type=button value="right" onClick="{
                         
   document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
   myCheckAll()
@@ -54,13 +54,28 @@ function myCheckAll(){
 }">
 
 
-<input type=button value="Move 10 pixels Diagonal" onClick="{
+<input type=button value="left" onClick="{
                         
-  document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+  document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 10
+  myCheckAll()
+                        
+}">
+  
+<input type=button value="up" onClick="{
+                        
   document.getElementById('mySpan01').style.top  = parseInt(document.getElementById('mySpan01').style.top)  - 10
   myCheckAll()
                         
 }">
+  
+<input type=button value="down" onClick="{
+                        
+  document.getElementById('mySpan01').style.top  = parseInt(document.getElementById('mySpan01').style.top)  + 10
+  myCheckAll()
+                        
+}">
+  
+  
 
 
 
